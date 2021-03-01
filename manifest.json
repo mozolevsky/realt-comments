@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "realt comments",
+    "version": "1.0",
+    "description": "Extension to hide a comments of certain authors on the website realt.by",
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "./icons/comments16.png",
+            "48": "./icons/comments48.png",
+            "128": "./icons/comments128.png"
+        }
+    },
+    "icons": {
+        "16": "./icons/comments16.png",
+        "48": "./icons/comments48.png",
+        "128": "./icons/comments128.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "permissions": ["declarativeContent", "storage", "activeTab"]
+}
