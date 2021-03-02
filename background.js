@@ -1,11 +1,21 @@
-chrome.runtime.onInstalled.addListener(function() {
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-      chrome.declarativeContent.onPageChanged.addRules([{
-        conditions: [new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: {hostEquals: 'realt.by'},
-        })
-        ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-      }]);
-    });
-  });
+const {
+    runtime,
+    declarativeContent: { onPageChanged, PageStateMatcher, ShowPageAction },
+} = chrome
+
+const HOST = 'realt.by'
+
+runtime.onInstalled.addListener(function () {
+    onPageChanged.removeRules(undefined, function () {
+        onPageChanged.addRules([
+            {
+                conditions: [
+                    new PageStateMatcher({
+                        pageUrl: { hostEquals: HOST },
+                    }),
+                ],
+                actions: [new ShowPageAction()],
+            },
+        ])
+    })
+})

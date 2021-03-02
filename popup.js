@@ -42,6 +42,15 @@ saveBannedUsers.onclick = function(element) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    storage.sync.get(['names'], function(res) {
+        const {names} = res
+
+        userNamesInput.value = names.length > 1 ? names.join(',') : names
+        executeOnActiveTab(res.names)
+    })
+})
+
 
 
 
