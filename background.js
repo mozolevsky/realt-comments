@@ -1,11 +1,11 @@
 const {
-    runtime,
+    runtime: { onInstalled, connect },
     declarativeContent: { onPageChanged, PageStateMatcher, ShowPageAction },
 } = chrome
 
 const HOST = 'realt.by'
 
-runtime.onInstalled.addListener(function () {
+onInstalled.addListener(function () {
     onPageChanged.removeRules(undefined, function () {
         onPageChanged.addRules([
             {

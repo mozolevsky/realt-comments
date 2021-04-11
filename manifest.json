@@ -17,10 +17,18 @@
         "128": "./icons/comments128.png"
     },
     "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
+        "service_worker": "background.js"
     },
-    "permissions": ["declarativeContent", "storage", "activeTab"]
+    "content_scripts": [
+        {
+          "matches": ["https://realt.by/*"],
+          "run_at": "document_idle",
+          "js": ["contentscript.js"]
+        }
+      ],
+    "permissions": [
+        "declarativeContent",
+        "storage",
+        "activeTab"
+    ]
 }

@@ -3,17 +3,24 @@
 
 <head>
     <style>
-        input {
-            margin-bottom: 0.5em;
+        .user-section {
+            min-width: 200px;
+        }
+
+        #save-banned-users {
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
     <section class='user-section'>
-        <p>Enter banned users names</p>
-        <input type='input' id='user-names-id' />
-        <button id="save-banned-users">Hide messages</button>
+       <form method="post" id='user-names-id'>      
+            <fieldset id='checkbox-parent'>      
+                <legend>Select banned users:</legend>
+                <input id="save-banned-users" type="submit" value="Hide messages" />      
+            </fieldset>      
+        </form>
     </section>
     <script src="popup.js"></script>
 </body>
